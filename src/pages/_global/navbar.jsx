@@ -23,15 +23,16 @@ const userAvatar = {
     title: "Abdullah Ruth",
     img: avatarImg,
     alt: "avatar image",
-    link:'/account',
+    link:'/profile',
   },
 };
 
-export default function Navbar() {
-  const [hambar, setHambar] = useState(false);
+export default function Navbar({hambar}) {
+
    const [sticky , setSticky] = useState(false)
   const windowSize = useWindowSize();
   const getToggller = useContext(NavbarTogllerContext)
+
   useEffect(() => {
 
     const windowYscroll = window.addEventListener("scroll", function (e) {
@@ -42,11 +43,7 @@ export default function Navbar() {
       }
     });
 
-    if (windowSize.width < 1024) {
-      setHambar(true);
-    } else {
-      setHambar(false);
-    }   
+   
     return () => {
       window.removeEventListener('sroll' , windowYscroll)
     };
@@ -54,7 +51,7 @@ export default function Navbar() {
 
     return (
       <nav
-        className={`custom-container  md:py-[18px] py-[10px]   w-[100%] top-0 lg:relative z-[100]  bg-[] ${sticky ? 'fixed  bg-light  transition-all duration-300 ' : 'static'}  `}
+        className={`custom-container  md:py-[18px] py-[10px]   w-[100%] top-0 lg:relative z-[100]  bg-[] ${sticky ? 'fixed  bg-light  transition-all duration-400 shadow-md ' : 'static'}  `}
       >
         <div className={`flex justify-between gap-2`}>
           <button
@@ -64,8 +61,8 @@ export default function Navbar() {
           >
             {hambar ? (
               <svg
-                width="40"
-                height="40"
+                width="30"
+                height="30"
                 viewBox="0 0 26 18"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"

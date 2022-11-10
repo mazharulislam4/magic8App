@@ -6,12 +6,12 @@ export default function ProfileAvatar({ userAvatar, hambar }) {
 
   return (
     <div>
-      <div className="flex items-center gap-x-3">
+      <div className="flex items-center sm:gap-x-3 gap-x-1  ">
         <figure>
           <Avatar alt={userAvatar.avatar.alt} src={userAvatar.avatar.img} />
         </figure>
-        <Link to ={userAvatar.avatar.link} className="flex items-center gap-x-1">
-          {!hambar ? userAvatar.avatar.titl : null} <img src={arrow} alt="arrow icon" />
+        <Link to ={userAvatar.avatar.link} className="flex lagre-font items-center gap-x-1">
+          {!hambar ? userAvatar.avatar.title : null} <img src={arrow} alt="arrow icon" />
         </Link>
       </div>
     </div>

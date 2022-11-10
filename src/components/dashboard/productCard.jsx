@@ -15,7 +15,7 @@ function ProductCard({ content, link }) {
   return (
     <div>
       <h2 className="medium-font text-dark my-3 ml-2">{content?.status}</h2>
-      <div className="w-[18.18rem] h-[320px] px-[21px] py-[14px] bg-light  rounded-md ">
+      <div className="w-[18.18rem] h-[320px] px-[21px] py-[14px] bg-light shadow-lg  rounded-md ">
         {/* content body */}
         <h2 className="text-dark initial-font mb-[14px] pt-[4px]">
           Created By {content?.date}

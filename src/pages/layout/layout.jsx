@@ -1,19 +1,19 @@
-import React, { useEffect, useState } from 'react';
-import { Outlet } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import { Outlet } from "react-router-dom";
 // fixed button entire website (Earn mana button)
-import FixedButton from '../../components/global/fixedButton';
-// for passing navbar cliked boll 
+import FixedButton from "../../components/global/fixedButton";
+// for passing navbar cliked boll
 import { NavbarTogllerContext } from "../../context/utilsContext";
-// a hook for taking window width and height 
-import useWindowSize from '../../hooks/useWindowSize';
-import Navbar from '../_global/navbar';
-import { Sidebar } from '../_global/sidebar';
+// a hook for taking window width and height
+import Overlay from "../../components/global/overlay";
+import useWindowSize from "../../hooks/useWindowSize";
+import Navbar from "../_global/navbar";
+import { Sidebar } from "../_global/sidebar";
 // styled component
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const MainLayout = styled.div`
-
-    overflow: hidden;
+  overflow: hidden;
 
   @media (min-width: 1024px) {
     display: flex;
@@ -23,54 +23,67 @@ const MainLayout = styled.div`
 `;
 
 const AsideContainer = styled.div`
-  width: ${(props)=>props.autoCollaps ? '65px' : '295px'};
+  width: ${(props) => (props.autoCollapse ? "65px" : "295px")};
 `;
 
 const Container = styled.div`
-width: 100%;
+  width: 100%;
   @media (min-width: 1024px) {
     flex-grow: 1;
-   
   }
 `;
 
 function Layout() {
   const [open, setOpen] = useState(false);
-  const [autoCollaps , setAutoCollaps] = useState(false)
-  const windowSize = useWindowSize()
+  const [autoCollapse, setAutoCollapse] = useState(false);
+  const windowSize = useWindowSize();
   const width = Math.round(windowSize.width);
-
+  const [hambar, setHambar] = useState(false);
   useEffect(() => {
+    
     if (width < 1280 && width > 1023) {
-      setAutoCollaps(true);
+      setAutoCollapse(true);
     } else {
-      setAutoCollaps(false)
+      setAutoCollapse(false);
     }
 
-    return ()=>{}
-},[width] )
+    if (width < 1024) {
+      setHambar(true);
+    } else {
+      setHambar(false);
+    }
 
+    const body = document.querySelector("body");
+    if (open && hambar) {
+      body.style.overflow = "hidden";
+    } else {
+      body.style.overflowY = "auto";
+    }
 
-  // navigation toggler 
+    return () => {};
+  }, [width, open, hambar]);
+
+  // navigation toggler
   const toggleHandler = () => {
     if (open) {
       setOpen(false);
     } else {
-      setOpen(true)
-   }
+      setOpen(true);
+    }
   };
 
   return (
     <NavbarTogllerContext.Provider value={{ open, toggleHandler }}>
       <MainLayout>
         <FixedButton>Earn Free Mana</FixedButton>
+        {open && hambar ? <Overlay /> : ""}
         {/* sidebar from page global  */}
-        <AsideContainer autoCollaps={autoCollaps}>
-          <Sidebar autoCollaps={autoCollaps} />
+        <AsideContainer autoCollapse={autoCollapse}>
+          <Sidebar autoCollapse={autoCollapse} />
         </AsideContainer>
         {/* content container  */}
         <Container>
-          <Navbar />
+          <Navbar hambar={hambar} />
           <Outlet />
         </Container>
       </MainLayout>
@@ -78,4 +91,4 @@ function Layout() {
   );
 }
 
-export default Layout
+export default Layout;

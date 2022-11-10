@@ -1,12 +1,24 @@
+
 import ProgressBar from "react-animated-progress-bar";
 import styled from "styled-components";
 import bottol from '../../assets/icon/bottol.svg';
+
 
 
 const NavHead = styled.div`
   @media (max-width:640px){
     justify-content: center;
     margin: 0 auto;
+  }
+
+  .bottol{
+    animation: bottol 1s infinite both linear ;
+  }
+
+  @keyframes bottol {
+    to{
+      transform: scale(1.1) skewX(3deg) skewY(2deg);
+    }
   }
 `
 
@@ -64,6 +76,8 @@ const ProgressContainer = styled.div`
 const NavHeader = ({data}) => {
   const { title, highLight, counter1, counter2, token, dividar, progPer, highLightColor } = data;
   
+
+
   return (
     <NavHead className="flex justify-between items-center  xl:gap-[70px] ">
       <Title className="lg:text-center leading-[30px]   2xl:extra-lagre-font xl:large-font lg:medium-font md:small-font ">
@@ -81,7 +95,11 @@ const NavHeader = ({data}) => {
           </strong>
         </h1>
         <div className="flex gap-2 items-center md:justify-center">
-          <img src={bottol} alt="mana collect bottol" className="w-[21.65px] h-[25.8px]" />
+          <img  
+            src={bottol}
+            alt="mana collect bottol"
+            className=" bottol md:w-[21.65px] md:h-[25.8px] w-[16px] h-[18px] "
+          />
           <p className="text-bold text-secondary">
             <span>{counter1}</span>
             {dividar}

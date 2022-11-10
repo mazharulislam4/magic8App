@@ -1,3 +1,4 @@
+
 import React, { useContext } from 'react';
 import { NavLink } from "react-router-dom";
 import styled from 'styled-components';
@@ -11,19 +12,19 @@ import { NavbarTogllerContext } from '../../context/utilsContext';
 
 // styled component styling
 const Aside = styled.aside`
-width: ${(props) => props.autoCollaps ? '60px' : '295px'};
-background-image: ${(props)=>props.autoCollaps ? 'none !important' : ''};
-padding: ${(props)=>props.autoCollaps ? '0 8px' : '0 15px'};
+width: ${(props) => props.autoCollapse ? '60px' : '295px'};
+background-image: ${(props)=>props.autoCollapse ? 'none !important' : ''};
+padding: ${(props)=>props.autoCollapse ? '0 8px' : '0 15px'};
 `
 // navbar link menu 
 /**
  * 
- * @param {togglerHandler , autoCollaps} param2
+ * @param {togglerHandler , autoCollapse} param2
  * these two param comes from Aside Compononent which is situeted below of the MenuItem Component . 
  * these two param are bool  (true , false)
  * @returns 
  */
-export const MenuItem = ({ toggleHandler, autoCollaps }) => {
+export const MenuItem = ({ toggleHandler, autoCollapse }) => {
 
   return (
     <ul className="list-none sidebarNav ">
@@ -31,7 +32,7 @@ export const MenuItem = ({ toggleHandler, autoCollaps }) => {
         ? navData.map((data) => {
             return (
               <li key={data.id} className={` my-3  `}>
-                {!autoCollaps ? (
+                {!autoCollapse ? (
                   <NavLink
                     to={data.link}
                     key = {data.id}
@@ -45,7 +46,7 @@ export const MenuItem = ({ toggleHandler, autoCollaps }) => {
                     <NavLink
                     key={data.id}
                     to={data.link}
-                    className={`text-light px-[7px] py-[10px] my-[25px] autoCollaps flex justify-center  hover:bg-[#5A4DAD] rounded-md transition-opacity text-center  }`}
+                    className={`text-light px-[7px] py-[10px] my-[25px] autoCollapse flex justify-center  hover:bg-[#5A4DAD] rounded-md transition-opacity text-center  }`}
                     onClick={toggleHandler}
                   >
                     <img
@@ -67,22 +68,25 @@ export const MenuItem = ({ toggleHandler, autoCollaps }) => {
 
 // the sidebar component  
 /**
- *autoCollaps props is bool if true sidebar autometic collaps  
- * @param {autoCollaps} param 
+ *autoCollapse props is bool if true sidebar autometic collaps  
+ * @param {autoCollapse} param 
  * @returns 
  */
 
-export function Sidebar({ autoCollaps }) {
+export function Sidebar({ autoCollapse }) {
   const { open, toggleHandler } = useContext(NavbarTogllerContext);
+
+
   return (
     <Aside
-      className={` lg:block lg:static px-[15px]  bg-[#3C3574] w-[100] fixed  z-[1000]  bg-sidebarBg bg-cover bg-no-repeat bg-center  ${open ? "block" : "hidden"
-        } `}
-      autoCollaps={autoCollaps}
+      className={` lg:block lg:static px-[15px]  bg-[#3C3574] w-[100] fixed  z-[1000]  bg-sidebarBg bg-cover bg-no-repeat bg-center  ${
+        open ? "block" : "hidden"
+      } `}
+      autoCollapse={autoCollapse}
     >
       <div className="relative flex flex-col gap-[50px] h-[100vh] ">
         {/* close button  */}
-        {!autoCollaps ? (
+        {!autoCollapse ? (
           <>
             <button
               type="button"
@@ -128,10 +132,10 @@ export function Sidebar({ autoCollaps }) {
         )}
         {/* menu items  */}
         <div>
-          <MenuItem toggleHandler={toggleHandler} autoCollaps={autoCollaps} />
+          <MenuItem toggleHandler={toggleHandler} autoCollapse={autoCollapse} />
         </div>
         {/* setting button  */}
-        {!autoCollaps ? (
+        {!autoCollapse ? (
           <div className="px-[25px] justify-self-end py-8 absolute bottom-0">
             <NavLink
               to="/setting"
