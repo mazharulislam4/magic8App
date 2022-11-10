@@ -1,7 +1,7 @@
 {"homepage":"https://github.com/mazharulislam4.github.io/magic8-dashboad",
   "name": "magic8_front_end",
   "version": "0.1.0",
-  "private": true,
+  "private": flase,
   "dependencies": {
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
