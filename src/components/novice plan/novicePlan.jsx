@@ -5,11 +5,11 @@ import NovicePlanHeading from "./novicePlanHeading";
 function NovicePlan() {
   return (
     <div className="flex flex-col justify-center">
-      <div className="my-[5px]  mt-[28px] gap-3 flex justify-center">
+      <div className="  mt-[10px] gap-3 flex justify-center">
         <Button bg="#8646EE" color = '#fff' hoverbg= "#fff" texthover = "#000" >Plans</Button>
         <Button>Buy Mana</Button>
       </div>
-      <div className="text-center mt-[17px]">
+      <div className="text-center my-[14px]">
         <NovicePlanHeading
           title="Plans"
           subtitle1="Upgraded Plans Are recurring"

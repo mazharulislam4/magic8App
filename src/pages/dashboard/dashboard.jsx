@@ -1,30 +1,71 @@
 import React from 'react';
-import DashboardProduct from '../../components/dashboard/dashboardProduct';
+import styled from 'styled-components';
 import OrderedCustomers from '../../components/dashboard/orderedCustomers';
+import ProductCard from '../../components/dashboard/productCard';
+import StoreCard from '../../components/dashboard/storeCard';
 import customersData from './customersData';
-import productData from './productData';
+import { productData, storeData } from './productData';
+
+// styled component 
+
+const ProductCardGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(18.18rem, 1fr));
+  grid-row-gap: 30px;
+  grid-column: 20px;
+  place-items: center stretch;
+
+  @media (max-width: 1024px) {
+    place-items: center ;
+  }
+`;
+
+
 function Dashboard() {
 
   return (
     <div className="custom-container ">
       <div className="bg-softDark md:rounded-t-xl md:rounded-r-xl flex ">
-        <div className="w-[100%] md:overflow-y-auto md:h-screen pb-[150px] pt-[20px]">
-          <section className="grid xl:grid-cols-3  md:grid-cols-2 grid-cols-1 place-items-center gap-8">
-            {productData &&
-              productData.map((data) => (
-                <DashboardProduct
-                  content={{
-                    ...data,
-                  }}
-                />
-              ))}
-          </section>
+        <div className="w-[100%] md:overflow-y-auto md:h-screen pb-[150px] pt-[20px] px-[30px]">
+          {/*-------------------------------- Trending store --------------------------------*/}
+          <div className='my-[50px]'>
+            <h2 className="text-secondary large-font lg:mb-[17px] text-center lg:text-left ">
+              Trending Stores
+            </h2>
+            <ProductCardGrid>
+              {storeData &&
+                storeData.map((data) => (
+                  <StoreCard
+                    content={{
+                      ...data,
+                    }}
+                  />
+                ))}
+            </ProductCardGrid>
+          </div>
+
+          {/* -----------------------------Trending product------------------------------ */}
+          <div className='my-[50px]'>
+            <h2 className="text-secondary large-font lg:mb-[17px] text-center lg:text-left ">
+              Trending Products
+            </h2>
+            <ProductCardGrid>
+              {productData &&
+                productData.map((data) => (
+                  <ProductCard
+                    content={{
+                      ...data,
+                    }}
+                  />
+                ))}
+            </ProductCardGrid>
+          </div>
         </div>
-{/* right sidebar layout  */}
+        {/*--------------------- --------------right sidebar layout -------------------------------- */}
         <div className="2xl:w-[500px] border-l-2 border-[#E4E4E4]  2xl:block hidden ">
           {/* container  */}
           <div className="md:overflow-y-auto md:h-screen px-[12px]  ">
-            <h2 className="medium-font text-secondary pt-4">
+            <h2 className="medium-font text-secondary pt-4 text-center md:text-left">
               Global Order Feed
             </h2>
             {customersData
