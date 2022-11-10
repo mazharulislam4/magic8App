@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/mazharulislam4.github.io/magic8app/static/css/main.e277f8ff.css",
+    "main.js": "/mazharulislam4.github.io/magic8app/static/js/main.ad376ca2.js",
+    "static/media/Gilroy-Medium.ttf": "/mazharulislam4.github.io/magic8app/static/media/Gilroy-Medium.1b4da6582f83f45ea039.ttf",
+    "static/media/setting.svg": "/mazharulislam4.github.io/magic8app/static/media/setting.a0c69d7aa26030941a3d94542c305ead.svg",
+    "static/media/product explorer.svg": "/mazharulislam4.github.io/magic8app/static/media/product explorer.fc29504a950f841b3ce25da3c477e58c.svg",
+    "static/media/bottol.svg": "/mazharulislam4.github.io/magic8app/static/media/bottol.ce8fd5e0b75df10b2d86131cf0506953.svg",
+    "static/media/dashboard.svg": "/mazharulislam4.github.io/magic8app/static/media/dashboard.40387d0bdf8e56d835706a5b7697cb31.svg",
+    "static/media/shop explorer.svg": "/mazharulislam4.github.io/magic8app/static/media/shop explorer.66be2edf9fa068075a40d3e5dd18567d.svg",
+    "static/media/fi-rr-signal-alt.svg": "/mazharulislam4.github.io/magic8app/static/media/fi-rr-signal-alt.532f9a3c4291a70dc9b58f55258cee73.svg",
+    "static/media/navbg.svg": "/mazharulislam4.github.io/magic8app/static/media/navbg.bd8cc3c621e63f2bc909.svg",
+    "static/media/shop.svg": "/mazharulislam4.github.io/magic8app/static/media/shop.00a276afd60dbc2537ab196badd06bc1.svg",
+    "static/media/fi-rr-angle-small-down.svg": "/mazharulislam4.github.io/magic8app/static/media/fi-rr-angle-small-down.e6b5e82ebcf9f9e6404c119555c05489.svg",
+    "static/media/account.svg": "/mazharulislam4.github.io/magic8app/static/media/account.357f9cd3dbd417692b605109e4532aa7.svg",
+    "static/media/sidebarbg.svg": "/mazharulislam4.github.io/magic8app/static/media/sidebarbg.24215be00c62e4a03857.svg",
+    "index.html": "/mazharulislam4.github.io/magic8app/index.html",
+    "main.e277f8ff.css.map": "/mazharulislam4.github.io/magic8app/static/css/main.e277f8ff.css.map",
+    "main.ad376ca2.js.map": "/mazharulislam4.github.io/magic8app/static/js/main.ad376ca2.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e277f8ff.css",
+    "static/js/main.ad376ca2.js"
+  ]
+}
