@@ -23,7 +23,7 @@ const submitHandler = (e)=>{
   return (
     <form
       action="#"
-      className="rounded-[8px]  md:mx-w-[629px] "
+      className="rounded-[8px]  md:w-[629px] "
     >
       <div>
         <h3 className="large-font text-secondary font-bold my-[25px]">
